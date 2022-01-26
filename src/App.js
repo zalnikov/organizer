@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Organizer from './components/organizer';
 import './App.css';
 
 function App() {
-  return <Organizer />;
+  return <div className='mainWrap'>
+    <Organizer />
+  </div> ;
 }
 
 export default App;

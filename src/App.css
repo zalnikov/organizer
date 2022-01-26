@@ -14,3 +14,89 @@
   color: white;
   background: black;
 }
+.note {
+  outline: 2px solid red;
+  /* border: 2px solid red; */
+}
+.noteListWrapper {
+  display: flex;
+}
+
+table {
+  border: 1px solid black;
+  border-spacing: 5px;
+  text-align: center;
+  height: 300px;
+  width: 300px;
+}
+table tbody td {
+  cursor: pointer;
+}
+thead th {
+  outline: 2px solid black;
+  height: 30px;
+  width: 30px;
+}
+
+.mainWrap {
+  display: flex;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.dispNamMonWrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.navCalWrap {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+}
+.navCalWrap button {
+  margin: 2px;
+  cursor: pointer;
+}
+.notesMainWrap {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+.btnWrap {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+}
+.btnWrap button {
+  cursor: pointer;
+}
+.noteListWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noteList {
+  display: flex;
+  justify-content: space-between;
+  background-color: silver;
+  margin: 2px;
+  width: 233px;
+  height: 20px;
+}
+.noteList div {
+  overflow: hidden; 
+  padding-left: 5px;
+  width: 85%;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .mainWrap {
+    display: flex;
+    flex-direction: column;
+  }
+}

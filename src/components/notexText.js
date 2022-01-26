@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function NotesText ({ setNotes }) {
-    const [text, setText] = useState('');
+function NotesText ({ text, setText}) {
 
 
     return <textarea cols="30" rows="10" value={text} onChange={(event) => setText(event.target.value)} ></textarea>

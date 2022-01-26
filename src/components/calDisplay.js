@@ -1,4 +1,5 @@
 import React from "react";
+import CalHeadNameDay from "./calHeadNameDay";
 import { nanoid } from 'nanoid'
 
 function CalDisplay ( { calendar, setSelectDay} ) {
@@ -24,7 +25,10 @@ function CalDisplay ( { calendar, setSelectDay} ) {
         })}</tr>
     })
 
-    return <table>
+    return <table> 
+        <thead>
+            <CalHeadNameDay />
+        </thead>
         <tbody>
             {result}
         </tbody>

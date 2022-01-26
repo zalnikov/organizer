@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "./Calendar";
 import NavCalendar from "./navCalendar";
 import DisplayNameMonth from "./displayNameMonth";
-import NotesDisplay from "./notesDisplay";
+import Notes from "./notes";
 
 let yearNow = new Date().getFullYear();
 let monthNow = new Date().getMonth();
@@ -13,10 +13,23 @@ const now = {
     'year': new Date().getFullYear(),
 }
 
+
+//не знаю как вынести функцию загрузки из локалсторедж в отдельный компонент
+function locStorMount() {
+    if ( !localStorage.getItem('notes')) {
+        return [];
+    } else {
+        return JSON.parse(localStorage.getItem('notes'));
+    }
+}
+
 function Organizer () {
     const [year, setYear] = useState(yearNow)
     const [month,setMonth] = useState(monthNow);
     const [selectDay, setSelectDay] = useState(now);
+    const [notes, setNotes] = useState(locStorMount());
+
+    localStorage.setItem('notes', JSON.stringify(notes));
 
     let alldays = new Date(year, month + 1, 0).getDate();
     let lastDayPreWeek = new Date(year, month, 0).getDay();
@@ -52,10 +65,12 @@ function Organizer () {
     let resultArr = [...arr, ...arr2];
 
     return <>
-        <NavCalendar year={year} setYear={setYear} month={month} setMonth={setMonth} setSelectDay={setSelectDay} now={now} />
-        <DisplayNameMonth year={year} month={month} />
-        <Calendar calendar={resultArr} month={month} selectDay={selectDay} setSelectDay={setSelectDay} />
-        <NotesDisplay selectDay={selectDay}/>
+        <div className="calWrap">
+            <DisplayNameMonth year={year} month={month} />
+            <Calendar calendar={resultArr} month={month} selectDay={selectDay} setSelectDay={setSelectDay} notes={notes}/>
+            <NavCalendar year={year} setYear={setYear} month={month} setMonth={setMonth} setSelectDay={setSelectDay} now={now} />
+        </div>
+        <Notes selectDay={selectDay} notes={notes} setNotes={setNotes} />
     </>
 }
 

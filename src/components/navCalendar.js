@@ -33,7 +33,7 @@ function NavCalendar( { month, setMonth, year, setYear, setSelectDay } ) {
     }
 
 
-    return <div>
+    return <div className="navCalWrap">
             <button onClick={() => prevMonth()}>Prev</button>
             <button onClick={() => now()}>Now</button>
             <button onClick={() => nextMonth()}>Next</button>
